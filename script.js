@@ -260,6 +260,13 @@ const todosClickHandler = (trashId, noteId) => {
 }
 
 const saveLocalStorage = () => {
+    if (isActive && isActive.length > 0) {
+        for (let todo of todos) {
+            if (todo.id == isActive[0].id) {
+                todo = isActive[0];
+            }
+        }
+    }
     localStorage.setItem(todosId, JSON.stringify(todos));
     localStorage.setItem(activeId, JSON.stringify(isActive));
 }
@@ -281,7 +288,7 @@ function noItemsYet(name, parent, beforeElement) {
     }
 }
 
-isItTrueFunc = (element)=>{
+isItTrueFunc = (element) => {
     element.classList.add("newLi-added");
     setTimeout(() => {
         element.classList.remove("newLi-added");
