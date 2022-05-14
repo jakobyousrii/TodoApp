@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TODO list</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="to-do-notes">
+        <div class="notes-header">
+            <h1 class="notes-h1"></h1>
+            <img class="trash" src="./icons/trash.svg" />
+        </div>
+        <div class="notes-div">
+            <div class="div-tasks-to-do">
+                <h4 class="tasks-to-do">TASKS TO DO</h4>
+                <div class="to-do-notes-items active-notes">
+                </div>
+            </div>
+            <div class="div-completed-tasks">
+                <h4 class="tasks-complete">TASKS COMPLETED</h4>
+                <div class="to-do-notes-items completed">
+                </div>
+                <button class="clear-completed-tasks">Delete all completed tasks</button>
+            </div>
+            <form class="notes-form">
+                <input class="input-note" type="text" placeholder="add new task..." />
+                <input class="notes-submit" type="submit" value="+" />
+            </form>
+            <button class="btn-add-note">Show Task Form</button>
+        </div>
+    </section>
+    <section class="to-do-lists">
+        <h2 class="to-do-h2">TO DO LIST</h2>
+        <form class="lists-form">
+            <input class="lists-input" placeholder="add new to do list..." type="text" />
+            <input class="lists-submit" type="submit" value="+" />
+        </form>
+        <ul class="to-do-lists-ul">
+        </ul>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>

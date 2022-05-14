@@ -1,0 +1,434 @@
+html {
+    min-height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    word-break: break-all;
+}
+
+body {
+    margin: 3rem 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #e66465, #9198e5);
+    background-repeat: no-repeat;
+    min-height: 100%;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.to-do-notes {
+    position: relative;
+    animation: to-do-notes-opacity 600ms forwards;
+    width: 30rem;
+}
+
+@keyframes to-do-notes-opacity {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.to-do-notes .notes-header {
+    background-color: palevioletred;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.to-do-notes-items {
+    font-style: italic;
+}
+
+.to-do-notes-ul {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 0 .5rem;
+    font-size: 1rem;
+}
+
+.to-do-notes-ul.completed {
+    min-height: 50%;
+}
+
+.to-do-notes .notes-div {
+    width: 100%;
+    min-height: 100px;
+    background-color: whitesmoke;
+    padding-bottom: 2rem;
+    margin-top: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+}
+
+.to-do-notes .notes-div div {
+    width: 100%;
+}
+
+.to-do-lists {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 20%;
+    border: none;
+    background-color: white;
+    width: 400px;
+    height: 400px;
+    padding: 2rem;
+    align-self: flex-start;
+    padding: 0 .5rem;
+    box-shadow: 0 0 7px rgba(0, 0, 0, .5);
+}
+
+.to-do-lists-ul {
+    overflow-x: auto;
+    width: 80%;
+}
+
+.todoLi {
+    padding: .2rem 0;
+    cursor: pointer;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: .5rem;
+    color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+.todoLi:hover,
+.todoLi:active {
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+input:nth-child(1) {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    padding: .2rem 1rem;
+    margin: .5rem;
+}
+
+.lists-input:active,
+.lists-input:focus {
+    border: 2px solid #d87093;
+
+}
+
+.input-note:active,
+.input-note:focus {
+    border: 2px solid #d87093;
+}
+
+input:nth-child(2) {
+    border: 2px solid #d87093;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: transparent;
+    color: #d87093;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    padding: 0rem .5rem;
+}
+
+input:nth-child(2):hover {
+    transform: scale(1);
+    opacity: .7;
+    background-color: #d87093;
+    color: white;
+}
+
+.btn-add-note {
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    transform: translate(-50%, 50%);
+    padding: .8rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    color: palevioletred;
+    background-color: #d87093;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn-add-note:hover,
+.btn-add-note:active {
+    background-color: rgb(229, 128, 162);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+
+ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+}
+
+
+.input-note-two {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    animation: input-trans 500ms forwards;
+}
+
+@keyframes input-trans {
+    from {
+        opacity: 0;
+        padding-right: 50%;
+    }
+
+    to {
+        opacity: 1;
+        padding-right: 0;
+    }
+}
+
+.isActive {
+    font-weight: 700;
+    animation: isActiveAnimation 500ms forwards;
+    border-radius: 10px;
+    padding: .1rem;
+
+}
+
+.isActive::before {
+    content: "";
+    position: relative;
+    left: -.5rem;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 4px;
+    font-weight: 700;
+    transform: rotate(313deg);
+    -webkit-transform: rotate(313deg);
+}
+
+@keyframes isActiveAnimation {
+    from {
+        background-color: transparent;
+        opacity: 0;
+    }
+
+    to {
+        background-color: #d87093;
+        color: white;
+        opacity: .7;
+    }
+}
+
+.noteLi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    width: 100%;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, .1);
+    padding: 1rem;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.newLi-added {
+    animation: noteLiAni 2s forwards !important;
+}
+
+@keyframes noteLiAni {
+
+    from {
+        right: 100%;
+        opacity: 0;
+        background-color: #9198e5;
+    }
+    50%{
+        right: 0%;
+        opacity: 1;
+    }
+    to {
+        background-color: white;
+    }
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notes-form {
+    display: none;
+}
+
+.no-notes {
+    text-align: center;
+    opacity: .4;
+    font-style: italic;
+}
+
+.trash {
+    cursor: pointer;
+}
+
+.trash:hover,
+.trash:active {
+    transform: scale(1.1);
+}
+
+.tasks-to-do,
+.tasks-complete,
+.to-do-h2 {
+    opacity: .5;
+    text-align: center;
+}
+
+.to-do-h2{
+    transform: skewY(166deg);
+    border-bottom: 6px solid #d87093;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.note-completed {
+    color: rgba(0, 0, 0, .4);
+    text-decoration: line-through;
+}
+
+.note-completed::before {
+    content: "";
+
+}
+
+.no-notes-completed {
+    text-align: center;
+    opacity: .4;
+    font-style: italic;
+}
+
+label {
+    cursor: pointer;
+}
+
+.purple-trash {
+    width: 20px;
+}
+
+.purple-trash:hover,
+.purple-trash:active {
+    transform: scale(1.2);
+}
+
+.div-wrap-label {
+    text-align: start;
+    font-size: 1rem;
+    opacity: .6;
+}
+
+.removeTodo{
+   animation: removeTodoAnime 600ms ease-out forwards !important;
+}
+
+
+.clear-completed-tasks{
+    background-color: transparent;
+    display: block;
+    margin: 1rem 0;
+    margin-left: auto;
+    border: none;
+    text-decoration: underline;
+    opacity: .7;
+    cursor: pointer;
+    display: none;
+    padding-right: 1rem;
+}
+
+.show-clear-completed-tasks{
+    display: block;
+}
+
+.clear-completed-tasks:hover, .clear-completed-tasks:active{
+    color: #e66465;
+}
+
+input[type=checkbox]{
+    cursor: pointer;
+}
+
+input[type=checkbox]:hover, input[type=checkbox]:active{
+transform: scale(1.3);
+}
+
+@keyframes removeTodoAnime {
+    from{
+        opacity: 1;
+        transform: translate(0);
+        background-color: inherit;
+    }
+    to{
+        opacity: 0;
+        transform: translate(-100%);
+        background-color: #e66465;
+    }
+}
+
+
+@media (max-width: 1300px) {
+    body{
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+    .to-do-lists {
+        position:static;
+        transform: none;
+        margin: 0;
+        align-self: center;
+    }
+    
+}
+
+@media (max-width: 500px) {
+    .to-do-notes {
+        position: relative;
+        animation: to-do-notes-opacity 600ms forwards;
+        width: 95%;
+    }
+    .to-do-lists {
+        width: 95%;
+    }
+    .btn-add-note{
+        font-size: .7rem;
+    }
+    .notes-h1{
+        font-size: 1.4rem;
+    }
+}
